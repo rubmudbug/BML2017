@@ -1,0 +1,124 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>百度一下,你就知道</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="apple-touch-icon" href="icon.png">
+        <!-- Place favicon.ico in the root directory -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/animate.min.css">
+    </head>
+    <body>
+        <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+        <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+        <!-- Add your site or application content here -->
+        <img src="blackhole.png" id="fb" style="width: 1759px; height: 1759px; position: fixed; z-index: 302; left: -120px; top: -512.5px;display: ">
+        <div class="TopTab">
+            <b>
+                <a href="http://news.baidu.com" name="news" class="TopTabTextFront" >新闻</a>
+                <a href="http://www.hao123.com" name="hao123" class="TopTabTextFront">hao123</a>
+                <a href="http://map.baidu.com" name="map" class="TopTabTextFront">地图</a>
+                <a href="http://v.baidu.com" name="video" class="TopTabTextFront">视频</a>
+                <a href="http://tieba.baidu.com" name="tieba" class="TopTabTextFront">贴吧</a>
+                <a href="http://xueshu.baidu.com" name="xueshu" class="TopTabTextFront">学术</a>
+                <a href="https://passport.baidu.com/v2/?login&amp;tpl=mn&amp;u=http%3A%2F%2Fwww.baidu.com%2F" id="TOPTabLogin" return false;">登录</a>
+                <a href="http://www.baidu.com/gaoji/preferences.html" name="settingicon" id="TOPTabSetting">设置</a>
+                <a href="http://www.baidu.com/more/"  id="TOPTabIcon" >更多</a>
+            </b>
+        </div>
+        <div class="flashImage">
+            <img hidefocus="true" src="flash.gif" height="129" width="270">
+        </div>
+        <div class="searchClass">
+            <span class="seachFrame">
+                <span class="searchInputFrame">
+                    <input id="searchInput"  value="" maxlength="255">
+                </span>
+                 <span class="searchButtom">
+                     <!--
+                    支持回车操作
+                    -->
+                    <input type="submit" id="seachButtomInput" value="百度一下" url="">
+                </span>
+            </span>
+        </div>
+        <div class="qrcodeImg">
+            <img src="qrcodeImg.png">
+        </div>
+        <div class="qrcodeText">
+            <p><b>手机百度</b></p>
+        </div>
+
+
+        <div class="bottomTab">
+            <p id="bottomTabLineOne">
+                <a class="bottomA" href="//www.baidu.com/cache/sethelp/help.html"  target="_blank">把百度设为主页</a>
+                <a class="bottomA" href="http://home.baidu.com"  href="http://home.baidu.com">关于百度</a>
+                <a class="bottomA" href="http://ir.baidu.com"  >About&nbsp;&nbsp;Baid</a>
+                <a class="bottomA" href="http://e.baidu.com/?refer=888"  >百度推广</a>
+            </p>
+            <p id="bottomrTabLineTwo">&copy;2017&nbsp;Baidu&nbsp;
+                <a class="bottomA" href="http://www.baidu.com/duty/" >使用百度前必读</a>&nbsp;
+                <a class="bottomA" href="http://jianyi.baidu.com/" class="cp-feedback" >意见反馈</a>&nbsp;京ICP证030173号&nbsp;
+                <i class="c-icon-icrlogo"></i>&nbsp;
+                <a class="bottomA" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11000002000001"  target="_blank">京公网安备11000002000001号</a>&nbsp;
+                <i class="c-icon-jgwablogo"></i>
+            <p><a id="backTop" href="#news">返回顶部</a></p>
+            </p>
+        </div>
+
+        <div class="rightTab" style="opacity: 1; min-height: 734px;display: none">
+            <div class="rightTabFrame">
+                <div class="rightTabTitle">更多</div>
+                <div class="rightTabMenu" style="height: 681px;">
+
+                        <a><span class="rightTabItem_1"></span>你超绿的</a>
+                        <a><span class="rightTabItem_2"></span>你老婆真棒</a>
+                        <a><span class="rightTabItem_3"></span>给大佬带上帽子</a>
+                        <a><span class="rightTabItem_4"></span>要坚强</a>
+                        <div class="bdbrievenmore">
+                            <a href="http://image.baidu.com/search/index?tn=baiduimage&ct=201326592&lm=-1&cl=2&ie=gbk&word=%B5%B1%C8%BB%CA%C7%D1%A1%D4%F1%D4%AD%C1%C2%CB%FD&fr=ala&ala=1&alatpl=adress&pos=0&hs=2&xthttps=000000/" name="tj_more">完全原谅&gt;&gt;</a>
+                        </div>
+                </div>
+
+            </div>
+        </div>
+        <script src="js/plugins.js"></script>
+        <script src="js/jquery.js"></script>
+        <script>
+            $(function () {
+                $("#TOPTabIcon").mouseover(function () {
+                    $(".rightTab").show();
+                });
+                $(".rightTab").mouseleave(function(){
+                    $(".rightTab").hide();
+                })
+            })
+        </script>
+        <script>
+            var i=0;
+            $(function(){
+                $('#fb').addClass('animated rotateOut');
+                var timer=setTimeout(function(){
+                    $("#fb").remove();
+                },1000);
+            });
+        </script>
+
+        <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+        <script>
+            window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+            ga('create','UA-Cybertron-Y','auto');ga('send','pageview')
+        </script>
+        <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+    </body>
+</html>
