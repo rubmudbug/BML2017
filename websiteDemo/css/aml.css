@@ -1,0 +1,14 @@
+.page{
+    position: absolute;
+    width: 100%;
+    height: 5%;
+    /*left: 40%;*/
+    text-align: center;
+}
+#amlImage{
+    position: absolute;
+    width: auto;
+    height: auto;
+    left: 20%;
+    top: 20%;
+}
