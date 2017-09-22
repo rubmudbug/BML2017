@@ -74,10 +74,10 @@
 
     </div>
 </div>
-<form class="amlFrom" action="php/aml.php" method="post">
+<form class="amlFrom" action="aml.php" method="post">
     <div class="page">
-    <button class="btn btn-defult "id="previous" name="previous" value="上一页">上一页</button>
-    <button class="btn btn-defult " id="next" name="next" value="下一页">下一页</button>
+    <input type="submit" class="btn btn-defult " name="previous" value="上一页">
+    <input type="submit" class="btn btn-defult " name="next" value="下一页">
     </div>
 </form>
 <?php
@@ -85,70 +85,52 @@
   if (!empty ($_COOKIE['flag'])){
       $flag=$_COOKIE['flag'];
       $flag=(int)$flag;
-     getPage($flag);
+      getPage($flag);
   }
 else {
       $flag = 1 ;
-      setcookie("flag",$flag,time()+54000,'/');
+      $flag=(string)$flag;
+      setcookie("flag",$flag,time()+5400);
     //重定向浏览器
-    header("http://localhost:63342/websiteDemo/aml.php?_ijt=64p7vgeepd4g8mkaqlfcrepvj");
+      header("http://localhost/websiteDemo/aml.php");
 //确保重定向后，后续代码不会被执行
     exit;
   }
-if(_pot('next')=="下一页"){
+if(@$_POST['next']=="下一页"){
+    $cook=(int)$_COOKIE["flag"];
+    if($cook<8){
+        $cook++;
+        $cook=(string)$cook;
+        setcookie("flag",$cook);
+        header("Location: http://localhost/websiteDemo/aml.php");
+    }
 
-    setcookie("flag",$_COOKIE["flag"]++,time()+54000,'/');
-    //header("Location: http://localhost:63342/websiteDemo/aml.php?_ijt=64p7vgeepd4g8mkaqlfcrepvj");
 }
-else if(_pot('previous')=="上一页"){
-
-    setcookie("flag",$_COOKIE['flag']--,time()+54000,'/');
-   // header("Location: http://localhost:63342/websiteDemo/aml.php?_ijt=64p7vgeepd4g8mkaqlfcrepvj");
-}
-function _pot($str){
-    $val = !empty($_POST[$str]) ? $_POST[$str] : null;
-    return $val;
-}
-
-function getPage($p){
-    switch ($p){
-        case 1:
-            echo '<img src="http://h70.readingbox.net/h58/201406/01/14303228997.jpg" id="amlImage">';
-
-            break;
-        case 2:
-            echo '<img src="http://h70.readingbox.net/h58/201406/01/14303228998.jpg" id="amlImage">';
-
-            break;
-        case 3:
-            echo '<img src="http://h70.readingbox.net/h58/201406/01/14303228999.jpg" id="amlImage">';
-
-            break;
-        case 4:
-            echo '<img src="http://h70.readingbox.net/h58/201406/01/14303229000.jpg" id="amlImage">';
-
-            break;
-        case 5:
-            echo '<img src="http://h70.readingbox.net/h58/201406/01/14303229001.jpg" id="amlImage">';
-
-            break;
-        case 6:
-            echo '<img src="http://h70.readingbox.net/h58/201406/01/14303229002.jpg" id="amlImage">';
-
-            break;
-        case 7:
-            echo '<img src="http://h70.readingbox.net/h58/201406/01/14303229003.jpg" id="amlImage">';
-
-            break;
-        case 8:
-            echo '<img src="http://h70.readingbox.net/h58/201406/01/14303229004.jpg" id="amlImage">';
-
-            break;
+else if(@$_POST['previous']=="上一页"){
+    $coo=(int)$_COOKIE["flag"];
+    if($coo>0) {
+        $coo--;
+        $coo = (string)$coo;
+        setcookie("flag", $coo);
+        header("Location: http://localhost/websiteDemo/aml.php");
     }
 }
-function showImg($url){
-    echo '<img src="$url" id="amlImage">';
+
+
+
+function getPage($p){
+    $p=(int)$p;
+    if($p<=8){
+        $p=(string)$p;
+        echo '<img id="amlImage" src="resouse/amlls/0'.$p.'.jpg" >';
+    }
+    else{
+        echo "<script> alert('你看到最后一页了') </script>";
+    }
+
+
 }
+
 
 
 ?>
@@ -164,6 +146,8 @@ function showImg($url){
 <!-- Just to make our placeholder images work. Don\'t actually copy the next line! -->
 <script src="../../assets/js/vendor/holder.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
 </body>
+
 </html>

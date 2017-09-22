@@ -5,10 +5,17 @@
     /*left: 40%;*/
     text-align: center;
 }
+
 #amlImage{
     position: absolute;
     width: auto;
     height: auto;
-    left: 20%;
     top: 20%;
+    left: 20%;
+    box-shadow: 20px -12px black;
+}
+element.style {
+    right: 0px;
+    top: 20%;
+
 }
